@@ -1,11 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// Nuxt config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxt/image"],
 
-  css: ["~/assets/css/main.css"],
+  css: [
+    "~/assets/css/base.css",
+    "~/assets/css/components.css",
+    "~/assets/css/main.css",
+  ],
 
   app: {
     head: {
