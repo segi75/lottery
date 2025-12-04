@@ -67,8 +67,10 @@
               />
               아이디 저장하기
             </label>
-            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-              >비밀번호 찾기</a
+            <NuxtLink
+              to="/find-account"
+              class="text-blue-600 dark:text-blue-400 hover:underline"
+              >아이디/비밀번호 찾기</NuxtLink
             >
           </div>
 
@@ -82,10 +84,10 @@
 
         <div class="mt-8 text-center text-sm text-gray-600 dark:text-gray-400">
           계정이 없으신가요?
-          <a
-            href="#"
+          <NuxtLink
+            to="/signup"
             class="font-bold text-blue-600 dark:text-blue-400 hover:underline ml-1"
-            >회원가입</a
+            >회원가입</NuxtLink
           >
         </div>
       </div>

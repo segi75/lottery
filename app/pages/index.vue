@@ -17,102 +17,100 @@
         >
           복지관에 오신걸 환영합니다.
         </h2>
-        <div class="mb-10 relative z-10 space-y-4">
+        <div class="mb-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Registration Period -->
           <div
-            class="flex items-center p-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm"
+            class="p-5 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-[1.02]"
           >
-            <div
-              class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-blue-600 dark:text-blue-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            <div class="flex items-center mb-3">
+              <div
+                class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-3"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                />
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm font-bold text-blue-800 dark:text-blue-200">
-                접수 기간
-              </p>
-              <p class="text-lg font-bold text-gray-900 dark:text-white">
-                2025.12.20 ~ 2025.12.31
-              </p>
-            </div>
-            <div
-              class="ml-auto px-3 py-1 md:px-6 md:py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-xl text-sm md:text-base font-bold flex items-center shadow-sm"
-            >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-blue-600 dark:text-blue-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  />
+                </svg>
+              </div>
+              <span class="font-bold text-blue-900 dark:text-blue-100 text-lg"
+                >접수 기간</span
+              >
               <span
-                class="mr-2 w-3 h-3 rounded-full bg-blue-500 animate-pulse"
-              ></span>
-              접수중
+                class="ml-auto px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-bold flex items-center"
+              >
+                <span
+                  class="mr-1.5 w-2 h-2 rounded-full bg-blue-500 animate-pulse"
+                ></span>
+                접수중
+              </span>
             </div>
+            <p class="text-xl font-bold text-gray-900 dark:text-white pl-1">
+              2025.12.20 ~ 12.31
+            </p>
           </div>
 
+          <!-- Lottery Period -->
           <div
-            class="flex items-center p-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm"
+            class="p-5 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-[1.02]"
           >
-            <div
-              class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-purple-600 dark:text-purple-300"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            <div class="flex items-center mb-3">
+              <div
+                class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-3"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div>
-              <p class="text-sm font-bold text-purple-800 dark:text-purple-200">
-                추첨 기간
-              </p>
-              <p class="text-lg font-bold text-gray-900 dark:text-white">
-                2026.01.02 ~ 2026.01.03
-              </p>
-            </div>
-            <div
-              class="ml-auto px-3 py-1 md:px-6 md:py-2 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-xl text-sm md:text-base font-bold flex items-center shadow-sm"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-purple-600 dark:text-purple-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="font-bold text-purple-900 dark:text-purple-100 text-lg"
+                >추첨 기간</span
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              예정
+              <span
+                class="ml-auto px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs font-bold flex items-center"
+              >
+                예정
+              </span>
             </div>
+            <p class="text-xl font-bold text-gray-900 dark:text-white pl-1">
+              2026.01.02 ~ 01.03
+            </p>
           </div>
         </div>
-        <div>
-          <button class="btn-primary-lg">
+
+        <div class="flex flex-col sm:flex-row gap-4 relative z-10 mt-auto">
+          <button
+            class="flex-1 px-6 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-2xl font-bold text-lg border-2 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all shadow-sm flex items-center justify-center"
+          >
+            수강신청 안내
+          </button>
+          <NuxtLink
+            to="/my-programs"
+            class="flex-[2] px-6 py-4 bg-blue-600 dark:bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center group"
+          >
             수강신청 바로가기
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 ml-2"
+              class="h-6 w-6 ml-2 group-hover:translate-x-1 transition-transform"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -124,7 +122,7 @@
                 d="M13 7l5 5m0 0l-5 5m5-5H6"
               />
             </svg>
-          </button>
+          </NuxtLink>
         </div>
       </div>
 

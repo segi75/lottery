@@ -52,6 +52,11 @@ module.exports = {
         "system-purple": "#AF52DE",
         "system-teal": "#5AC8FA",
         "system-indigo": "#5856D6",
+        // Warm Theme Colors
+        "warm-cream": "#FDFBF7",
+        "warm-beige": "#F5F0E6",
+        "warm-orange": "#FFD8B1",
+        "warm-text": "#4A4036",
       },
       backdropBlur: {
         xs: "2px",
