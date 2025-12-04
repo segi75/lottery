@@ -57,10 +57,10 @@
         </a>
       </nav>
       <div class="hidden md:flex items-center space-x-4 text-lg font-medium">
-        <a
-          href="#"
+        <NuxtLink
+          to="/login"
           class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-          >로그인</a
+          >로그인</NuxtLink
         >
         <span class="text-gray-300 dark:text-gray-600">|</span>
         <a
@@ -122,10 +122,10 @@
         >
         <div class="border-t border-gray-200 dark:border-gray-700 my-4 pt-4">
           <div class="grid grid-cols-2 gap-4">
-            <a
-              href="#"
+            <NuxtLink
+              to="/login"
               class="text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
-              >로그인</a
+              >로그인</NuxtLink
             >
             <a
               href="#"
