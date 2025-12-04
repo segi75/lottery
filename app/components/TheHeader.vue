@@ -15,30 +15,46 @@
         <h1
           class="text-lg md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white whitespace-nowrap mb-0 leading-none"
         >
-          엔컴지사노인종합복지관
+          엔컴서울지부노인종합사회복지관
         </h1>
       </div>
       <nav class="hidden md:flex items-center space-x-8">
         <a
           href="#"
-          class="text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-          >수강신청</a
+          class="relative group text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
         >
+          <span>수강신청</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"
+          ></span>
+        </a>
         <a
           href="#"
-          class="text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-          >나의 신청프로그램</a
+          class="relative group text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
         >
+          <span>나의 신청프로그램</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"
+          ></span>
+        </a>
         <a
           href="#"
-          class="text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-          >공지사항</a
+          class="relative group text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
         >
+          <span>공지사항</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"
+          ></span>
+        </a>
         <a
           href="#"
-          class="text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-          >추첨결과</a
+          class="relative group text-xl font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
         >
+          <span>추첨결과</span>
+          <span
+            class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"
+          ></span>
+        </a>
       </nav>
       <div class="hidden md:flex items-center space-x-4 text-lg font-medium">
         <a
