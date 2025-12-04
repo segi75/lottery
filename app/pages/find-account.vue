@@ -19,8 +19,11 @@
 
       <div class="relative z-10">
         <h2
-          class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
         >
+          <SearchIcon
+            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+          />
           계정 찾기
         </h2>
 
@@ -180,6 +183,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { Search as SearchIcon } from "lucide-vue-next";
 import AppAlert from "~/components/common/AppAlert.vue";
 
 const activeTab = ref("id");

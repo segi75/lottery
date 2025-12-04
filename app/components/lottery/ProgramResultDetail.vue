@@ -1,37 +1,37 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col h-full">
     <!-- Header Section -->
-    <div class="mb-6">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+    <div class="mb-4 flex-none">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
         {{ programName }}
       </h2>
-      <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+      <p class="mt-1 text-xs md:text-sm text-gray-600 dark:text-gray-400">
         당첨자 및 대기자 명단 (미당첨자는 표시되지 않습니다)
       </p>
     </div>
 
     <!-- Search Section -->
-    <div class="mb-6">
+    <div class="mb-4 flex-none">
       <div class="relative">
         <input
           v-model="searchQuery"
           type="text"
           placeholder="이름을 입력하세요"
-          class="w-full pl-4 pr-10 py-2.5 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+          class="w-full pl-4 pr-10 py-2 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
           @keyup.enter="handleSearch"
         />
         <button
           @click="handleSearch"
           class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
-          <SearchIcon class="w-5 h-5" />
+          <SearchIcon class="w-4 h-4" />
         </button>
       </div>
     </div>
 
     <!-- Data Table (Desktop) -->
-    <div class="flex flex-col hidden md:flex">
-      <div class="overflow-x-auto">
+    <div class="flex-1 flex flex-col hidden md:flex min-h-0">
+      <div class="overflow-y-auto flex-1">
         <table class="w-full">
           <thead class="sticky top-0 bg-white dark:bg-gray-900 z-10">
             <tr
@@ -105,40 +105,40 @@
     </div>
 
     <!-- Card List (Mobile) -->
-    <div class="flex-1 overflow-y-auto md:hidden space-y-3 p-1">
+    <div class="flex-1 overflow-y-auto md:hidden space-y-2 p-1 min-h-0">
       <div
         v-for="(applicant, index) in paginatedApplicants"
         :key="applicant.id"
-        class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4 shadow-sm"
+        class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-3 shadow-sm"
         :class="{
           'border-l-4 border-l-red-500': applicant.status === 'winner',
           'border-l-4 border-l-yellow-500': applicant.status === 'waiting',
         }"
       >
-        <div class="flex justify-between items-start">
+        <div class="flex justify-between items-center">
           <div>
-            <div class="flex items-center gap-2 mb-1">
+            <div class="flex items-center gap-2">
               <span class="text-xs font-mono text-gray-400 dark:text-gray-500"
                 >#{{ (currentPage - 1) * itemsPerPage + index + 1 }}</span
               >
-              <h3 class="font-bold text-gray-900 dark:text-white">
+              <h3 class="font-bold text-sm text-gray-900 dark:text-white">
                 {{ applicant.name }}
               </h3>
+              <span class="text-[10px] text-gray-400 dark:text-gray-500">
+                {{ applicant.userNo }}
+              </span>
             </div>
-            <p class="text-xs text-gray-500 dark:text-gray-400">
-              {{ applicant.userNo }}
-            </p>
           </div>
           <div>
             <span
               v-if="applicant.status === 'winner'"
-              class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-xs font-bold shadow-sm"
+              class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 text-[10px] font-bold shadow-sm"
             >
               당첨
             </span>
             <span
               v-else-if="applicant.status === 'waiting'"
-              class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-xs font-bold shadow-sm"
+              class="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-[10px] font-bold shadow-sm"
             >
               대기 {{ applicant.waitingNo }}번
             </span>

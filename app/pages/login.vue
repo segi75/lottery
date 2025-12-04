@@ -19,8 +19,11 @@
 
       <div class="relative z-10">
         <h2
-          class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
         >
+          <LogInIcon
+            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+          />
           로그인
         </h2>
 
@@ -70,7 +73,7 @@
             <NuxtLink
               to="/find-account"
               class="text-blue-600 dark:text-blue-400 hover:underline"
-              >아이디/비밀번호 찾기</NuxtLink
+              >계정찾기</NuxtLink
             >
           </div>
 
@@ -98,6 +101,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { LogIn as LogInIcon } from "lucide-vue-next";
 
 const username = ref("");
 const password = ref("");

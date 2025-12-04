@@ -19,8 +19,11 @@
 
       <div class="relative z-10">
         <h2
-          class="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white"
+          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
         >
+          <UserPlusIcon
+            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+          />
           회원가입
         </h2>
 
@@ -256,6 +259,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { UserPlus as UserPlusIcon } from "lucide-vue-next";
 import AppAlert from "~/components/common/AppAlert.vue";
 
 const router = useRouter();

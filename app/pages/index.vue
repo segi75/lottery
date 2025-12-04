@@ -98,11 +98,12 @@
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 relative z-10 mt-auto">
-          <button
+          <NuxtLink
+            to="/notices"
             class="flex-1 px-6 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-2xl font-bold text-lg border-2 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all shadow-sm flex items-center justify-center"
           >
             수강신청 안내
-          </button>
+          </NuxtLink>
           <NuxtLink
             to="/my-programs"
             class="flex-[2] px-6 py-4 bg-blue-600 dark:bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center group"
@@ -211,7 +212,12 @@
             </NuxtLink>
           </div>
 
-          <button class="btn-secondary mt-6 w-full">전체 결과 보기</button>
+          <NuxtLink
+            to="/lottery"
+            class="btn-secondary mt-6 w-full block text-center"
+          >
+            전체 결과 보기
+          </NuxtLink>
         </div>
       </div>
 
@@ -223,10 +229,10 @@
             <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
               공지사항
             </h3>
-            <a
-              href="#"
+            <NuxtLink
+              to="/notices"
               class="text-lg font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >더보기 +</a
+              >더보기 +</NuxtLink
             >
           </div>
           <ul class="space-y-4">
@@ -242,7 +248,7 @@
               </div>
               <span
                 class="px-2 py-1 bg-red-100 text-red-600 text-xs font-bold rounded"
-                >필독</span
+                >NEW</span
               >
             </li>
             <li
@@ -276,10 +282,10 @@
             <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
               인기 강좌
             </h3>
-            <a
-              href="#"
+            <NuxtLink
+              to="/course"
               class="text-lg font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >전체 보기 +</a
+              >전체 보기 +</NuxtLink
             >
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -2,17 +2,19 @@
   <div class="min-h-screen pt-24 pb-24 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto space-y-8">
       <!-- Header Section -->
-      <div
-        class="flex flex-col md:flex-row md:items-center justify-between gap-4"
-      >
-        <div>
-          <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-            추첨결과
-          </h1>
-          <p class="mt-2 text-gray-600 dark:text-gray-400">
-            프로그램별 추첨 결과와 당첨자 명단을 확인하실 수 있습니다.
-          </p>
-        </div>
+      <!-- Header Section -->
+      <div class="text-center mb-8">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
+        >
+          <GiftIcon
+            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+          />
+          추첨결과
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          프로그램별 추첨 결과와 당첨자 명단을 확인하실 수 있습니다.
+        </p>
       </div>
 
       <div
@@ -173,6 +175,7 @@ import {
   Search as SearchIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
+  Gift as GiftIcon,
 } from "lucide-vue-next";
 import SemesterSelector from "~/components/my-program/SemesterSelector.vue";
 import ProgramResultDetail from "~/components/lottery/ProgramResultDetail.vue";

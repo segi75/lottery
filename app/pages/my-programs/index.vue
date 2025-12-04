@@ -1,23 +1,22 @@
 <template>
   <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div
-      class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4"
-    >
-      <div>
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          나의 신청프로그램
-        </h2>
-        <p class="text-gray-600 dark:text-gray-300">
-          신청하신 강좌의 상태와 결제 정보를 확인하세요.
-        </p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-3">
-        <SemesterSelector v-model="selectedSemester" :semesters="semesters" />
-        <StatusSelector
-          v-model="selectedStatus"
-          :statuses="availableStatuses"
+    <div class="text-center mb-12">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
+      >
+        <UserIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
         />
-      </div>
+        나의 신청프로그램
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        신청하신 강좌의 상태와 결제 정보를 확인하세요.
+      </p>
+    </div>
+
+    <div class="mb-8 flex justify-end gap-3">
+      <SemesterSelector v-model="selectedSemester" :semesters="semesters" />
+      <StatusSelector v-model="selectedStatus" :statuses="availableStatuses" />
     </div>
 
     <MyProgramList
@@ -49,6 +48,7 @@
 
 <script setup>
 import { ref, computed, watch } from "vue";
+import { User as UserIcon } from "lucide-vue-next";
 import MyProgramList from "~/components/my-program/MyProgramList.vue";
 import SemesterSelector from "~/components/my-program/SemesterSelector.vue";
 import StatusSelector from "~/components/my-program/StatusSelector.vue";

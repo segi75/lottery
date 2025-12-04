@@ -2,8 +2,11 @@
   <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h2
-        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
       >
+        <EditIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+        />
         수강신청
       </h2>
       <p class="text-lg text-gray-600 dark:text-gray-300">
@@ -25,6 +28,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { Edit as EditIcon } from "lucide-vue-next";
 import CourseSearch from "~/components/course/CourseSearch.vue";
 import CourseList from "~/components/course/CourseList.vue";
 import Pagination from "~/components/common/Pagination.vue";
