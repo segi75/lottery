@@ -13,16 +13,17 @@
                 >A</span
               >
             </div>
-            <span class="text-xl font-bold text-gray-900 dark:text-white"
-              >행복노인복지관</span
+            <span class="text-base font-bold text-gray-900 dark:text-white"
+              >서울지부엔컴노인복지관</span
             >
           </div>
           <p
-            class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6 max-w-md"
+            class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 max-w-md"
           >
             어르신들의 행복하고 활기찬 노후를 위해 다양한 평생교육 프로그램과
             복지 서비스를 제공합니다.<br />
-            배움의 기쁨과 함께하는 즐거움이 있는 곳, 행복노인복지관입니다.
+            배움의 기쁨과 함께하는 즐거움이 있는 곳,
+            서울지부엔컴노인복지관입니다.
           </p>
           <div class="flex space-x-4">
             <a
@@ -87,11 +88,11 @@
         </div>
         <div>
           <h3
-            class="text-lg font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4"
+            class="text-base font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4"
           >
             바로가기
           </h3>
-          <ul class="space-y-3 text-lg">
+          <ul class="space-y-3 text-sm">
             <li>
               <a
                 href="#"
@@ -110,11 +111,11 @@
         </div>
         <div>
           <h3
-            class="text-lg font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4"
+            class="text-base font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4"
           >
             문의처
           </h3>
-          <ul class="space-y-3 text-gray-600 dark:text-gray-300 text-lg">
+          <ul class="space-y-3 text-gray-600 dark:text-gray-300 text-sm">
             <li class="flex items-start">
               <span
                 class="font-bold mr-2 text-gray-800 dark:text-gray-200 min-w-[60px]"
@@ -156,19 +157,24 @@
       <div
         class="border-t border-gray-300 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
       >
-        <p class="text-base text-gray-500">
-          &copy; 2025 행복노인복지관. All rights reserved.
+        <p class="text-sm text-gray-500">
+          &copy; 2025 서울지부엔컴노인복지관. All rights reserved.
         </p>
         <div class="flex space-x-6 mt-4 md:mt-0">
-          <a
-            href="#"
-            class="text-base font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
-            >개인정보취급방침</a
+          <NuxtLink
+            to="/privacy-policy"
+            class="text-sm font-bold text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+            >개인정보취급방침</NuxtLink
           >
-          <a
-            href="#"
-            class="text-base text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >이메일무단수집거부</a
+          <NuxtLink
+            to="/email-refusal"
+            class="text-sm text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >이메일무단수집거부</NuxtLink
+          >
+          <NuxtLink
+            to="/terms"
+            class="text-sm text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >이용약관</NuxtLink
           >
         </div>
       </div>

@@ -1,131 +1,8 @@
 <template>
   <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <!-- Hero Section (Bento Grid Item) -->
-      <div
-        class="col-span-12 md:col-span-8 glass-card p-10 relative overflow-hidden group flex flex-col justify-center min-h-[350px] animate-fade-in"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-orange-400/20 via-red-400/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-        ></div>
-        <div
-          class="absolute -right-20 -top-20 w-96 h-96 bg-orange-300/30 rounded-full blur-3xl opacity-50 animate-pulse"
-        ></div>
-
-        <h2
-          class="text-2xl md:text-4xl font-bold mb-6 relative z-10 text-gradient-primary leading-tight animate-slide-up"
-        >
-          복지관에 오신걸 환영합니다.
-        </h2>
-        <div class="mb-8 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- Registration Period -->
-          <div
-            class="p-5 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-[1.02]"
-          >
-            <div class="flex items-center mb-3">
-              <div
-                class="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-3"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-blue-600 dark:text-blue-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                  />
-                </svg>
-              </div>
-              <span class="font-bold text-blue-900 dark:text-blue-100 text-lg"
-                >접수 기간</span
-              >
-              <span
-                class="ml-auto px-2.5 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-lg text-xs font-bold flex items-center"
-              >
-                <span
-                  class="mr-1.5 w-2 h-2 rounded-full bg-blue-500 animate-pulse"
-                ></span>
-                접수중
-              </span>
-            </div>
-            <p class="text-xl font-bold text-gray-900 dark:text-white pl-1">
-              2025.12.20 ~ 12.31
-            </p>
-          </div>
-
-          <!-- Lottery Period -->
-          <div
-            class="p-5 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-[1.02]"
-          >
-            <div class="flex items-center mb-3">
-              <div
-                class="w-10 h-10 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-3"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-purple-600 dark:text-purple-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <span
-                class="font-bold text-purple-900 dark:text-purple-100 text-lg"
-                >추첨 기간</span
-              >
-              <span
-                class="ml-auto px-2.5 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-lg text-xs font-bold flex items-center"
-              >
-                예정
-              </span>
-            </div>
-            <p class="text-xl font-bold text-gray-900 dark:text-white pl-1">
-              2026.01.02 ~ 01.03
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-4 relative z-10 mt-auto">
-          <NuxtLink
-            to="/notices"
-            class="flex-1 px-6 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-2xl font-bold text-lg border-2 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all shadow-sm flex items-center justify-center"
-          >
-            수강신청 안내
-          </NuxtLink>
-          <NuxtLink
-            to="/my-programs"
-            class="flex-[2] px-6 py-4 bg-blue-600 dark:bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 hover:scale-[1.02] transition-all shadow-lg flex items-center justify-center group"
-          >
-            수강신청 바로가기
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 ml-2 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </NuxtLink>
-        </div>
-      </div>
+      <!-- Hero Section (Banner Card) -->
+      <BannerCard />
 
       <!-- Lottery Results Card (Bento Grid Item) -->
       <div
@@ -350,6 +227,8 @@
 
 <script setup>
 import { ref } from "vue";
+
+import BannerCard from "~/components/main/BannerCard.vue";
 
 const isLoggedIn = useState("isLoggedIn", () => false);
 </script>

@@ -36,112 +36,128 @@
         </div>
       </div>
 
-      <!-- Desktop Data Table -->
-      <div class="hidden md:block glass-card overflow-hidden">
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead>
-              <tr
-                class="bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700"
-              >
-                <th
-                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-20"
+      <div v-if="paginatedNotices.length > 0">
+        <!-- Desktop Data Table -->
+        <div class="hidden md:block glass-card overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead>
+                <tr
+                  class="bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700"
                 >
-                  번호
-                </th>
-                <th
-                  class="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white"
-                >
-                  제목
-                </th>
-                <th
-                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-32"
-                >
-                  작성자
-                </th>
-                <th
-                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-32"
-                >
-                  작성일
-                </th>
-                <th
-                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-24"
-                >
-                  조회수
-                </th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-              <tr
-                v-for="notice in paginatedNotices"
-                :key="notice.id"
-                class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer"
-                @click="goToDetail(notice.id)"
-              >
-                <td
-                  class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
-                >
-                  {{ notice.id }}
-                </td>
-                <td class="px-6 py-4">
-                  <div
-                    class="text-sm font-medium text-gray-900 dark:text-white"
+                  <th
+                    class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-20"
                   >
-                    {{ notice.title }}
-                  </div>
-                </td>
-                <td
-                  class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
+                    번호
+                  </th>
+                  <th
+                    class="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-white"
+                  >
+                    제목
+                  </th>
+                  <th
+                    class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-32"
+                  >
+                    작성자
+                  </th>
+                  <th
+                    class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-32"
+                  >
+                    작성일
+                  </th>
+                  <th
+                    class="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-white w-24"
+                  >
+                    조회수
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                <tr
+                  v-for="notice in paginatedNotices"
+                  :key="notice.id"
+                  class="hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer"
+                  @click="goToDetail(notice.id)"
                 >
-                  {{ notice.author }}
-                </td>
-                <td
-                  class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
-                >
-                  {{ notice.date }}
-                </td>
-                <td
-                  class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
-                >
-                  {{ notice.views }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Mobile Card List -->
-      <div class="md:hidden space-y-4">
-        <div
-          v-for="notice in paginatedNotices"
-          :key="notice.id"
-          class="glass-card p-5 cursor-pointer active:scale-[0.98] transition-transform"
-          @click="goToDetail(notice.id)"
-        >
-          <div class="flex justify-between items-start gap-4">
-            <h3
-              class="text-lg font-bold text-gray-900 dark:text-white line-clamp-2"
-            >
-              {{ notice.title }}
-            </h3>
-            <span class="text-xs text-gray-400 whitespace-nowrap"
-              >No.{{ notice.id }}</span
-            >
+                  <td
+                    class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
+                  >
+                    {{ notice.id }}
+                  </td>
+                  <td class="px-6 py-4">
+                    <div
+                      class="text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      {{ notice.title }}
+                    </div>
+                  </td>
+                  <td
+                    class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
+                  >
+                    {{ notice.author }}
+                  </td>
+                  <td
+                    class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
+                  >
+                    {{ notice.date }}
+                  </td>
+                  <td
+                    class="px-6 py-4 text-center text-sm text-gray-600 dark:text-gray-400"
+                  >
+                    {{ notice.views }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </div>
+
+        <!-- Mobile Card List -->
+        <div class="md:hidden space-y-4">
           <div
-            class="mt-3 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+            v-for="notice in paginatedNotices"
+            :key="notice.id"
+            class="glass-card p-5 cursor-pointer active:scale-[0.98] transition-transform"
+            @click="goToDetail(notice.id)"
           >
-            <span>{{ notice.author }}</span>
-            <div class="flex items-center gap-3">
-              <span>{{ notice.date }}</span>
-              <span class="flex items-center gap-1">
-                <EyeIcon class="w-3 h-3" />
-                {{ notice.views }}
-              </span>
+            <div class="flex justify-between items-start gap-4">
+              <h3
+                class="text-lg font-bold text-gray-900 dark:text-white line-clamp-2"
+              >
+                {{ notice.title }}
+              </h3>
+              <span class="text-xs text-gray-400 whitespace-nowrap"
+                >No.{{ notice.id }}</span
+              >
+            </div>
+            <div
+              class="mt-3 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
+            >
+              <span>{{ notice.author }}</span>
+              <div class="flex items-center gap-3">
+                <span>{{ notice.date }}</span>
+                <span class="flex items-center gap-1">
+                  <EyeIcon class="w-3 h-3" />
+                  {{ notice.views }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div v-else class="text-center py-20 animate-fade-in">
+        <div
+          class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <SearchXIcon class="w-10 h-10 text-gray-400 dark:text-gray-500" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+          검색 결과가 없습니다.
+        </h3>
+        <p class="text-gray-500 dark:text-gray-400">
+          다른 검색어로 다시 시도해보세요.
+        </p>
       </div>
 
       <!-- Pagination -->
@@ -190,6 +206,7 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import {
   Search as SearchIcon,
+  SearchX as SearchXIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   Eye as EyeIcon,

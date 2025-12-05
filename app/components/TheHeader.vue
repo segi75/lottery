@@ -18,13 +18,13 @@
           >
         </div>
         <h1
-          class="text-lg md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white whitespace-nowrap mb-0 leading-none transition-all duration-700 ease-in-out ml-3 md:ml-0 md:max-w-0 md:opacity-0 md:overflow-hidden md:group-hover:max-w-[400px] md:group-hover:opacity-100 md:group-hover:ml-3"
+          class="text-lg lg:text-xl font-semibold tracking-tight text-gray-900 dark:text-white whitespace-nowrap mb-0 leading-none transition-all duration-700 ease-in-out ml-3 lg:ml-0 lg:max-w-0 lg:opacity-0 lg:overflow-hidden lg:group-hover:max-w-[400px] lg:group-hover:opacity-100 lg:group-hover:ml-3"
         >
           엔컴서울지부노인종합사회복지관
         </h1>
       </NuxtLink>
       <nav
-        class="hidden md:flex items-center transition-all duration-700 ease-in-out whitespace-nowrap"
+        class="hidden lg:flex items-center transition-all duration-700 ease-in-out whitespace-nowrap"
         :class="isMenuCompressed ? 'space-x-4 scale-95' : 'space-x-8'"
       >
         <NuxtLink
@@ -68,7 +68,7 @@
           ></span>
         </NuxtLink>
       </nav>
-      <div class="hidden md:flex items-center space-x-4 text-lg font-medium">
+      <div class="hidden lg:flex items-center space-x-4 text-lg font-medium">
         <template v-if="!isLoggedIn">
           <NuxtLink
             to="/login"
@@ -102,21 +102,11 @@
         </template>
         <template v-else>
           <!-- Session Timer -->
-          <div
-            class="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold"
-          >
-            <ClockIcon class="w-5 h-5" />
-            <span class="font-mono">30:00</span>
-            <button
-              class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
-            >
-              연장
-            </button>
-          </div>
+          <!-- Session Timer Removed -->
           <span class="text-gray-300 dark:text-gray-600">|</span>
           <!-- Edit Info -->
           <NuxtLink
-            to="/my-programs"
+            to="/user/profile"
             class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors flex items-center gap-2"
           >
             <SettingsIcon class="w-5 h-5" />
@@ -147,7 +137,7 @@
       <!-- Mobile Menu Button -->
       <button
         @click="isMobileMenuOpen = !isMobileMenuOpen"
-        class="md:hidden p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none"
+        class="lg:hidden p-2 rounded-md text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none"
       >
         <MenuIcon v-if="!isMobileMenuOpen" class="h-6 w-6" />
         <XIcon v-else class="h-6 w-6" />
@@ -157,7 +147,7 @@
     <!-- Mobile Menu -->
     <div
       v-if="isMobileMenuOpen"
-      class="md:hidden absolute top-16 left-0 right-0 bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-lg z-40 transition-colors duration-300"
+      class="lg:hidden absolute top-16 left-0 right-0 bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-lg z-40 transition-colors duration-300"
     >
       <div class="px-4 pt-4 pb-6 space-y-2">
         <NuxtLink
@@ -194,22 +184,44 @@
         >
         <div class="border-t border-gray-200 dark:border-gray-700 my-4 pt-4">
           <div class="grid grid-cols-2 gap-4">
-            <NuxtLink
-              to="/login"
-              @click="isMobileMenuOpen = false"
-              class="text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center justify-center gap-2"
-            >
-              <LogInIcon class="w-4 h-4" />
-              로그인</NuxtLink
-            >
-            <NuxtLink
-              to="/signup"
-              @click="isMobileMenuOpen = false"
-              class="text-center px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 flex items-center justify-center gap-2"
-            >
-              <UserPlusIcon class="w-4 h-4" />
-              회원가입</NuxtLink
-            >
+            <template v-if="!isLoggedIn">
+              <NuxtLink
+                to="/login"
+                @click="isMobileMenuOpen = false"
+                class="text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center justify-center gap-2"
+              >
+                <LogInIcon class="w-4 h-4" />
+                로그인</NuxtLink
+              >
+              <NuxtLink
+                to="/signup"
+                @click="isMobileMenuOpen = false"
+                class="text-center px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-lg text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 flex items-center justify-center gap-2"
+              >
+                <UserPlusIcon class="w-4 h-4" />
+                회원가입</NuxtLink
+              >
+            </template>
+            <template v-else>
+              <NuxtLink
+                to="/user/profile"
+                @click="isMobileMenuOpen = false"
+                class="text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center justify-center gap-2"
+              >
+                <SettingsIcon class="w-4 h-4" />
+                정보수정</NuxtLink
+              >
+              <button
+                @click="
+                  isLoggedIn = false;
+                  isMobileMenuOpen = false;
+                "
+                class="text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 flex items-center justify-center gap-2"
+              >
+                <LogOutIcon class="w-4 h-4" />
+                로그아웃
+              </button>
+            </template>
           </div>
           <div class="mt-4 text-center flex flex-col items-center space-y-4">
             <button
@@ -247,7 +259,6 @@ import {
   Gift as GiftIcon,
   LogIn as LogInIcon,
   UserPlus as UserPlusIcon,
-  Clock as ClockIcon,
   Settings as SettingsIcon,
   LogOut as LogOutIcon,
 } from "lucide-vue-next";

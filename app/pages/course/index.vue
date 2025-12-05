@@ -16,19 +16,35 @@
 
     <CourseSearch @search="handleSearch" />
 
-    <CourseList :courses="paginatedCourses" />
+    <div v-if="paginatedCourses.length > 0">
+      <CourseList :courses="paginatedCourses" />
 
-    <Pagination
-      :current-page="currentPage"
-      :total-pages="totalPages"
-      @page-change="handlePageChange"
-    />
+      <Pagination
+        :current-page="currentPage"
+        :total-pages="totalPages"
+        @page-change="handlePageChange"
+      />
+    </div>
+
+    <div v-else class="text-center py-20 animate-fade-in">
+      <div
+        class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6"
+      >
+        <SearchXIcon class="w-10 h-10 text-gray-400 dark:text-gray-500" />
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+        검색 결과가 없습니다.
+      </h3>
+      <p class="text-gray-500 dark:text-gray-400">
+        다른 검색어로 다시 시도해보세요.
+      </p>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { Edit as EditIcon } from "lucide-vue-next";
+// Force rebuild
+import { Edit as EditIcon, SearchX as SearchXIcon } from "lucide-vue-next";
 import CourseSearch from "~/components/course/CourseSearch.vue";
 import CourseList from "~/components/course/CourseList.vue";
 import Pagination from "~/components/common/Pagination.vue";

@@ -19,13 +19,35 @@
       <StatusSelector v-model="selectedStatus" :statuses="availableStatuses" />
     </div>
 
-    <MyProgramList
-      :applications="filteredApplications"
-      @show-details="openPaymentModal"
-      @show-waiting-info="handleWaitingInfo"
-      @show-lottery-info="handleLotteryInfo"
-      @cancel-application="handleCancelRequest"
-    />
+    <div v-if="filteredApplications.length > 0">
+      <MyProgramList
+        :applications="filteredApplications"
+        @show-details="openPaymentModal"
+        @show-waiting-info="handleWaitingInfo"
+        @show-lottery-info="handleLotteryInfo"
+        @cancel-application="handleCancelRequest"
+      />
+    </div>
+
+    <div v-else class="text-center py-20 animate-fade-in">
+      <div
+        class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6"
+      >
+        <FileQuestionIcon class="w-10 h-10 text-gray-400 dark:text-gray-500" />
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+        신청한 프로그램이 없습니다.
+      </h3>
+      <p class="text-gray-500 dark:text-gray-400">
+        원하시는 강좌를 검색하고 신청해보세요.
+      </p>
+      <NuxtLink
+        to="/course"
+        class="inline-block mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-xl"
+      >
+        강좌 찾으러 가기
+      </NuxtLink>
+    </div>
 
     <PaymentDetailsModal
       :is-open="isPaymentModalOpen"
@@ -48,7 +70,11 @@
 
 <script setup>
 import { ref, computed, watch } from "vue";
-import { User as UserIcon } from "lucide-vue-next";
+
+import {
+  User as UserIcon,
+  FileQuestion as FileQuestionIcon,
+} from "lucide-vue-next";
 import MyProgramList from "~/components/my-program/MyProgramList.vue";
 import SemesterSelector from "~/components/my-program/SemesterSelector.vue";
 import StatusSelector from "~/components/my-program/StatusSelector.vue";

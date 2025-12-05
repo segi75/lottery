@@ -89,9 +89,21 @@
               </div>
               <div
                 v-if="paginatedPrograms.length === 0"
-                class="text-center py-8 text-sm text-gray-500"
+                class="flex flex-col items-center justify-center py-12 text-center"
               >
-                검색 결과가 없습니다.
+                <div
+                  class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-3"
+                >
+                  <SearchXIcon
+                    class="w-6 h-6 text-gray-400 dark:text-gray-500"
+                  />
+                </div>
+                <p class="text-sm font-bold text-gray-900 dark:text-white">
+                  검색 결과가 없습니다.
+                </p>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  다른 검색어로 시도해보세요.
+                </p>
               </div>
             </div>
 
@@ -173,6 +185,7 @@
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import {
   Search as SearchIcon,
+  SearchX as SearchXIcon,
   ChevronLeft as ChevronLeftIcon,
   ChevronRight as ChevronRightIcon,
   Gift as GiftIcon,
