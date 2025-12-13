@@ -1,21 +1,19 @@
 <template>
-  <div class="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto space-y-8">
-      <!-- Header Section -->
-      <!-- Header Section -->
-      <div class="text-center mb-8">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
-        >
-          <BellIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          공지사항
-        </h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400">
-          복지관의 주요 소식과 안내사항을 확인하세요.
-        </p>
-      </div>
+  <div class="min-h-screen pb-12">
+    <!-- Page Header -->
+    <PageHeader
+      title="공지사항"
+      subtitle="복지관의 주요 소식과 안내사항을 확인하세요."
+    >
+      <template #icon>
+        <BellIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
+
+    <div class="px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto space-y-8">
 
       <!-- Search Section -->
       <div class="glass-card p-6 flex justify-end">
@@ -197,6 +195,7 @@
           </button>
         </div>
       </div>
+      </div>
     </div>
   </div>
 </template>
@@ -212,6 +211,7 @@ import {
   Eye as EyeIcon,
   Bell as BellIcon,
 } from "lucide-vue-next";
+import PageHeader from "~/components/common/PageHeader.vue";
 
 const router = useRouter();
 const searchQuery = ref("");

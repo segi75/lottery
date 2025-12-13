@@ -1,18 +1,17 @@
 <template>
-  <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
-      >
+<div class="min-h-screen pb-12">
+    <PageHeader
+      title="나의 신청프로그램"
+      subtitle="신청하신 강좌의 상태와 결제 정보를 확인하세요."
+    >
+      <template #icon>
         <UserIcon
           class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
         />
-        나의 신청프로그램
-      </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300">
-        신청하신 강좌의 상태와 결제 정보를 확인하세요.
-      </p>
-    </div>
+      </template>
+    </PageHeader>
+
+    <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
     <div class="mb-8 flex justify-end gap-3">
       <SemesterSelector v-model="selectedSemester" :semesters="semesters" />
@@ -65,6 +64,7 @@
       @close="closeAlert"
       @confirm="handleAlertConfirm"
     />
+    </div>
   </div>
 </template>
 
@@ -79,6 +79,7 @@ import MyProgramList from "~/components/my-program/MyProgramList.vue";
 import SemesterSelector from "~/components/my-program/SemesterSelector.vue";
 import StatusSelector from "~/components/my-program/StatusSelector.vue";
 import PaymentDetailsModal from "~/components/my-program/PaymentDetailsModal.vue";
+import PageHeader from "~/components/common/PageHeader.vue";
 import AppAlert from "~/components/common/AppAlert.vue";
 
 // Mock Data

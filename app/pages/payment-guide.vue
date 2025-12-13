@@ -1,31 +1,23 @@
 <template>
-  <div
-    class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh]"
-  >
-    <div
-      class="w-full max-w-4xl glass-card p-8 relative overflow-hidden animate-fade-in"
+<div class="min-h-screen pb-12">
+    <PageHeader
+      title="수납 안내"
+      subtitle="수강료 납부 방법과 환불 규정을 안내해 드립니다."
     >
-      <!-- Background effects -->
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-50"
-      ></div>
-      <div
-        class="absolute -right-10 -top-10 w-40 h-40 bg-blue-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-      ></div>
-      <div
-        class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-        style="animation-delay: 1s"
-      ></div>
+      <template #icon>
+        <CreditCardIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+        />
+      </template>
+    </PageHeader>
 
-      <div class="relative z-10">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white flex items-center justify-center gap-3"
-        >
-          <CreditCardIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          수납 안내
-        </h2>
+    <div
+      class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center"
+    >
+      <div
+        class="w-full max-w-4xl glass-card p-8 relative overflow-hidden animate-fade-in"
+      >
+        <div class="relative z-10">
 
         <div class="space-y-8">
           <!-- Payment Info Table Section -->
@@ -301,6 +293,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -315,4 +308,5 @@ import {
   MapPin as MapPinIcon,
 } from "lucide-vue-next";
 import PaymentInfoTable from "~/components/payment/PaymentInfoTable.vue";
+import PageHeader from "~/components/common/PageHeader.vue";
 </script>

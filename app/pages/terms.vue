@@ -1,10 +1,14 @@
 <template>
-  <div class="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
+<div class="min-h-screen pb-12">
+    <PageHeader title="이용약관">
+      <template #icon>
+        <FileTextIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
+    <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div class="glass-card p-8 md:p-12">
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-          이용약관
-        </h1>
 
         <div class="prose dark:prose-invert max-w-none space-y-6">
           <section>
@@ -80,6 +84,9 @@
 </template>
 
 <script setup>
+import { FileText as FileTextIcon } from "lucide-vue-next";
+import PageHeader from "~/components/common/PageHeader.vue";
+
 useHead({
   title: "이용약관 - 서울지부엔컴노인복지관",
 });

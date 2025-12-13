@@ -1,33 +1,22 @@
 <template>
-  <div
-    class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh]"
-  >
+  <div class="min-h-screen pb-12">
+    <PageHeader title="회원가입" subtitle="새로운 가족이 되신 것을 환영합니다.">
+      <template #icon>
+        <UserPlusIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
+
     <div
-      class="w-full max-w-md glass-card p-8 relative overflow-hidden animate-fade-in"
+      class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center"
     >
-      <!-- Background effects -->
       <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-50"
-      ></div>
-      <div
-        class="absolute -right-10 -top-10 w-40 h-40 bg-blue-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-      ></div>
-      <div
-        class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-        style="animation-delay: 1s"
-      ></div>
+        class="w-full max-w-md glass-card p-8 relative overflow-hidden animate-fade-in"
+      >
+        <div class="relative z-10">
 
-      <div class="relative z-10">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
-        >
-          <UserPlusIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          회원가입
-        </h2>
-
-        <form @submit.prevent="handleSignup" class="space-y-6">
+        <form @submit.prevent="handleSignup" class="space-y-6" novalidate>
           <!-- Name -->
           <div>
             <label
@@ -244,6 +233,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <AppAlert
       :is-open="alertState.isOpen"
@@ -260,6 +250,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { UserPlus as UserPlusIcon } from "lucide-vue-next";
+import PageHeader from "~/components/common/PageHeader.vue";
 import AppAlert from "~/components/common/AppAlert.vue";
 
 const router = useRouter();

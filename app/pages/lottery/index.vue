@@ -1,21 +1,18 @@
 <template>
-  <div class="min-h-screen pt-24 pb-24 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto space-y-8">
-      <!-- Header Section -->
-      <!-- Header Section -->
-      <div class="text-center mb-8">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
-        >
-          <GiftIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          추첨결과
-        </h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400">
-          프로그램별 추첨 결과와 당첨자 명단을 확인하실 수 있습니다.
-        </p>
-      </div>
+<div class="min-h-screen pb-24">
+    <PageHeader
+      title="추첨결과"
+      subtitle="프로그램별 추첨 결과와 당첨자 명단을 확인하실 수 있습니다."
+    >
+      <template #icon>
+        <GiftIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
+        />
+      </template>
+    </PageHeader>
+
+    <div class="px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto space-y-8">
 
       <div
         class="grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-[600px] mb-12 relative z-0"
@@ -171,6 +168,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <!-- Mobile Modal -->
     <ProgramResultModal
@@ -193,6 +191,7 @@ import {
 import SemesterSelector from "~/components/my-program/SemesterSelector.vue";
 import ProgramResultDetail from "~/components/lottery/ProgramResultDetail.vue";
 import ProgramResultModal from "~/components/lottery/ProgramResultModal.vue";
+import PageHeader from "~/components/common/PageHeader.vue";
 
 const selectedSemester = ref("2025-1");
 const searchQuery = ref("");

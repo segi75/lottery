@@ -1,31 +1,23 @@
 <template>
-  <div
-    class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh]"
-  >
-    <div
-      class="w-full max-w-[1400px] glass-card p-4 md:p-8 relative overflow-hidden animate-fade-in"
+<div class="min-h-screen pb-12">
+    <PageHeader
+      title="프로그램실 시간표 안내"
+      subtitle="각 강의실별 프로그램 시간표를 확인하실 수 있습니다."
     >
-      <!-- Background effects -->
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-50"
-      ></div>
-      <div
-        class="absolute -right-10 -top-10 w-40 h-40 bg-blue-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-      ></div>
-      <div
-        class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-        style="animation-delay: 1s"
-      ></div>
+      <template #icon>
+        <CalendarIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
 
-      <div class="relative z-10">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
-        >
-          <CalendarIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          프로그램실 시간표 안내
-        </h2>
+    <div
+      class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center"
+    >
+      <div
+        class="w-full glass-card p-4 md:p-8 relative overflow-hidden animate-fade-in"
+      >
+        <div class="relative z-10">
 
         <!-- Selectors -->
         <div class="mb-6 flex flex-col sm:flex-row justify-end gap-4">
@@ -104,6 +96,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -112,6 +105,7 @@ import {
   ArrowRight as ArrowRightIcon,
 } from "lucide-vue-next";
 import ScheduleTable from "~/components/course/ScheduleTable.vue";
+import PageHeader from "~/components/common/PageHeader.vue";
 import { ref } from "vue";
 
 const selectedClassroom = ref("all");

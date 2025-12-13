@@ -5,7 +5,7 @@
     <!-- Global Background -->
     <div class="fixed inset-0 -z-20 dark:hidden">
       <img
-        src="~/assets/images/global_bg.png"
+        src="~/assets/images/light_fluid_bg.png"
         alt="Background"
         class="w-full h-full object-cover opacity-90"
       />

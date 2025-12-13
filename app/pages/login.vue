@@ -1,33 +1,22 @@
 <template>
-  <div
-    class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh]"
-  >
+  <div class="min-h-screen pb-12">
+    <PageHeader title="로그인" subtitle="서비스 이용을 위해 로그인이 필요합니다.">
+      <template #icon>
+        <LogInIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
+
     <div
-      class="w-full max-w-md glass-card p-8 relative overflow-hidden animate-fade-in"
+      class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center"
     >
-      <!-- Background effects -->
       <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-50"
-      ></div>
-      <div
-        class="absolute -right-10 -top-10 w-40 h-40 bg-blue-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-      ></div>
-      <div
-        class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-        style="animation-delay: 1s"
-      ></div>
+        class="w-full max-w-md glass-card p-8 relative overflow-hidden animate-fade-in"
+      >
+        <div class="relative z-10">
 
-      <div class="relative z-10">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
-        >
-          <LogInIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          로그인
-        </h2>
-
-        <form @submit.prevent="handleLogin" class="space-y-6">
+        <form @submit.prevent="handleLogin" class="space-y-6" novalidate>
           <div>
             <label
               for="username"
@@ -95,6 +84,16 @@
         </div>
       </div>
     </div>
+
+    <AppAlert
+      :is-open="alertState.isOpen"
+      :title="alertState.title"
+      :message="alertState.message"
+      :type="alertState.type"
+      @close="closeAlert"
+      @confirm="closeAlert"
+    />
+  </div>
   </div>
 </template>
 
@@ -102,12 +101,43 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { LogIn as LogInIcon } from "lucide-vue-next";
+import PageHeader from "~/components/common/PageHeader.vue";
+import AppAlert from "~/components/common/AppAlert.vue";
 
 const username = ref("");
 const password = ref("");
 const router = useRouter();
 
+const alertState = ref({
+  isOpen: false,
+  title: "",
+  message: "",
+  type: "info", // info, warning, danger, success
+});
+
+const closeAlert = () => {
+  alertState.value.isOpen = false;
+};
+
+const showAlert = (title, message, type = "warning") => {
+  alertState.value = {
+    isOpen: true,
+    title,
+    message,
+    type,
+  };
+};
+
 const handleLogin = () => {
+  if (!username.value) {
+    showAlert("알림", "아이디를 입력해주세요.");
+    return;
+  }
+  if (!password.value) {
+    showAlert("알림", "비밀번호를 입력해주세요.");
+    return;
+  }
+
   // Mock login logic
   console.log("Logging in with", username.value, password.value);
   const isLoggedIn = useState("isLoggedIn");

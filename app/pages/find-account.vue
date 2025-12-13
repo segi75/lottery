@@ -1,31 +1,20 @@
 <template>
-  <div
-    class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh]"
-  >
-    <div
-      class="w-full max-w-md glass-card p-8 relative overflow-hidden animate-fade-in"
-    >
-      <!-- Background effects -->
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-50"
-      ></div>
-      <div
-        class="absolute -right-10 -top-10 w-40 h-40 bg-blue-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-      ></div>
-      <div
-        class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-        style="animation-delay: 1s"
-      ></div>
+  <div class="min-h-screen pb-12">
+    <PageHeader title="계정 찾기" subtitle="아이디/비밀번호를 잊으셨나요?">
+      <template #icon>
+        <SearchIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
 
-      <div class="relative z-10">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
-        >
-          <SearchIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          계정 찾기
-        </h2>
+    <div
+      class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center"
+    >
+      <div
+        class="w-full max-w-md glass-card p-8 relative overflow-hidden animate-fade-in"
+      >
+        <div class="relative z-10">
 
         <!-- Tabs -->
         <div class="flex border-b border-gray-200 dark:border-gray-700 mb-6">
@@ -66,6 +55,7 @@
           v-if="activeTab === 'id'"
           @submit.prevent="handleFindId"
           class="space-y-6"
+          novalidate
         >
           <div>
             <label
@@ -106,7 +96,7 @@
         </form>
 
         <!-- Find Password Form -->
-        <form v-else @submit.prevent="handleFindPassword" class="space-y-6">
+        <form v-else @submit.prevent="handleFindPassword" class="space-y-6" novalidate>
           <div>
             <label
               for="pw-id"
@@ -169,6 +159,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <AppAlert
       :is-open="alertState.isOpen"
@@ -184,6 +175,7 @@
 <script setup>
 import { ref } from "vue";
 import { Search as SearchIcon } from "lucide-vue-next";
+import PageHeader from "~/components/common/PageHeader.vue";
 import AppAlert from "~/components/common/AppAlert.vue";
 
 const activeTab = ref("id");
@@ -220,11 +212,32 @@ const showAlert = (title, message, type = "info") => {
 };
 
 const handleFindId = () => {
+  if (!findIdForm.value.name) {
+    showAlert("알림", "이름을 입력해주세요.", "warning");
+    return;
+  }
+  if (!findIdForm.value.email) {
+    showAlert("알림", "이메일을 입력해주세요.", "warning");
+    return;
+  }
   // Mock Logic
   showAlert("아이디 찾기 성공", `회원님의 아이디는 user*** 입니다.`, "success");
 };
 
 const handleFindPassword = () => {
+  if (!findPwForm.value.id) {
+    showAlert("알림", "아이디를 입력해주세요.", "warning");
+    return;
+  }
+  if (!findPwForm.value.name) {
+    showAlert("알림", "이름을 입력해주세요.", "warning");
+    return;
+  }
+  if (!findPwForm.value.email) {
+    showAlert("알림", "이메일을 입력해주세요.", "warning");
+    return;
+  }
+
   // Mock Logic
   showAlert(
     "임시 비밀번호 발송",

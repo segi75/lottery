@@ -1,33 +1,25 @@
 <template>
-  <div
-    class="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[80vh]"
-  >
-    <div
-      class="w-full max-w-2xl glass-card p-8 relative overflow-hidden animate-fade-in"
+  <div class="min-h-screen pb-12">
+    <PageHeader
+      title="회원정보 수정"
+      subtitle="회원 정보를 확인하고 수정할 수 있습니다."
     >
-      <!-- Background effects -->
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-purple-400/10 to-pink-400/10 opacity-50"
-      ></div>
-      <div
-        class="absolute -right-10 -top-10 w-40 h-40 bg-blue-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-      ></div>
-      <div
-        class="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-300/30 rounded-full blur-2xl opacity-50 animate-pulse"
-        style="animation-delay: 1s"
-      ></div>
+      <template #icon>
+        <SettingsIcon
+          class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-300"
+        />
+      </template>
+    </PageHeader>
 
-      <div class="relative z-10">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center gap-3"
-        >
-          <SettingsIcon
-            class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
-          />
-          회원정보 수정
-        </h2>
+    <div
+      class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center justify-center"
+    >
+      <div
+        class="w-full max-w-2xl glass-card p-8 relative overflow-hidden animate-fade-in"
+      >
+        <div class="relative z-10">
 
-        <form @submit.prevent="handleUpdate" class="space-y-6">
+        <form @submit.prevent="handleUpdate" class="space-y-6" novalidate>
           <!-- Basic Info Section -->
           <div class="space-y-4">
             <h3
@@ -215,6 +207,7 @@
         </form>
       </div>
     </div>
+    </div>
 
     <AppAlert
       :is-open="alertState.isOpen"
@@ -230,6 +223,7 @@
 <script setup>
 import { ref } from "vue";
 import { Settings as SettingsIcon } from "lucide-vue-next";
+import PageHeader from "~/components/common/PageHeader.vue";
 import AppAlert from "~/components/common/AppAlert.vue";
 
 const form = ref({
@@ -266,13 +260,26 @@ const showAlert = (title, message, type = "info") => {
 };
 
 const handleUpdate = () => {
-  // Mock Validation
-  if (
-    form.value.newPassword &&
-    form.value.newPassword !== form.value.confirmPassword
-  ) {
-    showAlert("비밀번호 불일치", "새 비밀번호가 일치하지 않습니다.", "error");
+  // Validation
+  if (!form.value.phone) {
+    showAlert("알림", "휴대전화 번호를 입력해주세요.", "warning");
     return;
+  }
+  if (!form.value.email) {
+    showAlert("알림", "이메일을 입력해주세요.", "warning");
+    return;
+  }
+
+  // Password Validation
+  if (form.value.newPassword || form.value.confirmPassword) {
+    if (!form.value.currentPassword) {
+      showAlert("알림", "현재 비밀번호를 입력해주세요.", "warning");
+      return;
+    }
+    if (form.value.newPassword !== form.value.confirmPassword) {
+      showAlert("비밀번호 불일치", "새 비밀번호가 일치하지 않습니다.", "danger");
+      return;
+    }
   }
 
   // Mock API Call

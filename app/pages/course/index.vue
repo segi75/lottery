@@ -1,18 +1,14 @@
 <template>
-  <div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-center gap-3"
-      >
+<div class="min-h-screen pb-12">
+    <PageHeader title="수강신청" subtitle="원하시는 강좌를 검색하고 신청해보세요.">
+      <template #icon>
         <EditIcon
           class="w-8 h-8 md:w-10 md:h-10 text-blue-600 dark:text-blue-400"
         />
-        수강신청
-      </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-300">
-        원하시는 강좌를 검색하고 신청해보세요.
-      </p>
-    </div>
+      </template>
+    </PageHeader>
+
+    <div class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
     <CourseSearch @search="handleSearch" />
 
@@ -39,6 +35,7 @@
         다른 검색어로 다시 시도해보세요.
       </p>
     </div>
+    </div>
   </div>
 </template>
 
@@ -48,6 +45,7 @@ import { Edit as EditIcon, SearchX as SearchXIcon } from "lucide-vue-next";
 import CourseSearch from "~/components/course/CourseSearch.vue";
 import CourseList from "~/components/course/CourseList.vue";
 import Pagination from "~/components/common/Pagination.vue";
+import PageHeader from "~/components/common/PageHeader.vue";
 
 // Mock Data Generation
 const generateMockCourses = () => {

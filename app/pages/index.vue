@@ -1,5 +1,9 @@
 <template>
-  <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div>
+    <!-- Independent Hero Section -->
+    <HeroSection />
+
+    <main class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <!-- Hero Section (Banner Card) -->
       <BannerCard />
@@ -223,12 +227,14 @@
       </div>
     </div>
   </main>
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
 import BannerCard from "~/components/main/BannerCard.vue";
+import HeroSection from "~/components/main/HeroSection.vue";
 
 const isLoggedIn = useState("isLoggedIn", () => false);
 </script>
