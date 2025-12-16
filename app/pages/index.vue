@@ -3,7 +3,7 @@
     <!-- Independent Hero Section -->
     <HeroSection />
 
-    <main class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <main class="pb-12 pt-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <!-- Hero Section (Banner Card) -->
       <BannerCard />
